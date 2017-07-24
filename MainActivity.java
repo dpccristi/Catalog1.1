@@ -16,13 +16,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+//ghj
 
     public void StudentButton(View view) {
         Button buton = (Button) findViewById(R.id.studentButton);
         buton.setBackgroundResource(R.drawable.roundbutton);
         Button buton2 = (Button) findViewById(R.id.profesorButtonId);
         buton2.setBackgroundResource(R.drawable.round);
+
 
         Button signIn = (Button) findViewById(R.id.SignIn);
         signIn.setOnClickListener(new View.OnClickListener() {
