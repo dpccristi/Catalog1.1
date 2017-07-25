@@ -34,7 +34,7 @@ public class UsersListActivity extends AppCompatActivity {
 
     DatabaseHelper mdb;
     SQLiteDatabase db;
-    String Name = "nameKey";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +72,17 @@ public class UsersListActivity extends AppCompatActivity {
 
 //-----------------------------------------------------------------------------------------------------------------
        String emailFromIntent = getIntent().getStringExtra("EMAIL");
-        //textViewName.setText(emailFromIntent);
-        mdb = new DatabaseHelper(this);
-        db = mdb.getReadableDatabase();
-       Cursor cur= db.rawQuery("select COLUMN_USER_NAME from TABLE_USER where COLUMN_USER_EMAIL = ?", new String[]{emailFromIntent});
+       // textViewName.setText(emailFromIntent);
+        DatabaseHelper mdb = new DatabaseHelper(this);
+        SQLiteDatabase db = mdb.getReadableDatabase();
+       Cursor cur= db.rawQuery("select * from user ",null);
        cur.moveToFirst();
-       // db.query(null,)
+       // db.query(null,)s
         textViewName.setText(cur.getString(1));
-        getDataFromSQLite();
+
 //------------------------------------------------------------------------------------------------------------------
-    }
+
+   getDataFromSQLite();}
 
     private void findSt() {
 
